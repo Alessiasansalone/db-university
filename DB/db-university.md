@@ -15,9 +15,11 @@ sono presenti diversi Dipartimenti (es.: Lettere e Filosofia, Matematica, Ingegn
 
 table: degree_courses
 
-table: three_year_degrees
+    - table: three_year_degrees (degree_courses R(DBMS))
 
-table: master_degrees
+    - table: master_degrees (degree_courses R(DBMS))
 
-table: english_master_degrees
+    - table: english_master_degrees (degree_courses R(DBMS))
+
+table: 
 
