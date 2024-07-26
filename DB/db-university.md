@@ -15,11 +15,14 @@ sono presenti diversi Dipartimenti (es.: Lettere e Filosofia, Matematica, Ingegn
 
 table: degree_courses
 
-    - table: three_year_degrees (degree_courses R(DBMS))
+table: degree's_year (degree_courses R(DBMS))
 
-    - table: master_degrees (degree_courses R(DBMS))
+table: courses (degree_courses R(DBMS))
 
-    - table: english_master_degrees (degree_courses R(DBMS))
+table: teachers (degree_courses R(DBMS) - courses R(DBMS))
 
-table: 
+table: exam_appeals (courses R(DBMS) - teachers R(DBMS))
 
+table: votes (courses R(DBMS) - students R(DBMS))
+
+table: students (degree_courses R(DBMS) - teachers R(DBMS) - exam_appeals R(DBMS))
