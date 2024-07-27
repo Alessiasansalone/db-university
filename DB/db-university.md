@@ -34,7 +34,7 @@ sono presenti diversi Dipartimenti (es.: Lettere e Filosofia, Matematica, Ingegn
   - VARCHAR(80)
   - NOTNULL
 
-# table: degree_courses (departments R(DBMS))
+# table: degree_courses
 
 - id 
   - BIGINT
@@ -64,7 +64,7 @@ sono presenti diversi Dipartimenti (es.: Lettere e Filosofia, Matematica, Ingegn
   - VARCHAR(80)
   - NOTNULL
 
-# table: admission (degree_courses R(DBMS))
+# table: admission
 
 - id 
   - BIGINT
@@ -90,7 +90,7 @@ sono presenti diversi Dipartimenti (es.: Lettere e Filosofia, Matematica, Ingegn
   - VARCHAR(100)
   - NULL
 
-# table: courses (degree_courses R(DBMS))
+# table: courses
 
 - id
   - BIGINT
@@ -124,7 +124,12 @@ sono presenti diversi Dipartimenti (es.: Lettere e Filosofia, Matematica, Ingegn
   - VARCHAR(100)
   - NULL
 
-# table: teachers (degree_courses R(DBMS) - courses R(DBMS))
+- exam_appeals_id
+  - UNSIGNED 
+  - BIGINT 
+  - FK
+
+# table: teachers
 
 - id
   - BIGINT
@@ -146,8 +151,7 @@ sono presenti diversi Dipartimenti (es.: Lettere e Filosofia, Matematica, Ingegn
   - VARCHAR(80)
   - NOTNULL
 
-
-# table: teachers_personal_data (teachers R(DBMS))
+# table: teachers_personal_data
 
 - id
   - BIGINT
@@ -182,11 +186,45 @@ sono presenti diversi Dipartimenti (es.: Lettere e Filosofia, Matematica, Ingegn
   - NULL
 
 
-# table: exam_appeals (courses R(DBMS) - teachers R(DBMS))
+# table: exam_appeals
+
+- id
+  - BIGINT
+  - PK
+  - AI
+  - UNIQUE
+  - NOTNULL
+
+- course_name 
+  - VARCHAR(80)
+  - NOTNULL
+
+- date
+  - DATE
+  - NOTNULL
+
+- teachers_id
+  - UNSIGNED 
+  - BIGINT 
+  - FK
 
 - available_credits
-  - VARCHAR()
+  - TINYINT
+  - NULL
+
+- votes_id
+  - TINYINT
+  - NULL
 
 # table: votes (courses R(DBMS) - students R(DBMS))
+
+- id
+  - BIGINT
+  - PK
+  - AI
+  - UNIQUE
+  - NOTNULL
+
+- value
 
 # table: students (degree_courses R(DBMS) - courses R(DBMS) - teachers R(DBMS) - exam_appeals R(DBMS) - votes R(DBMS))
